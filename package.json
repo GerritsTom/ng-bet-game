@@ -8,8 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot --target=production"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -43,9 +42,5 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0"
-  },
-  "engines" : {
-    "node": "6.9.2",
-    "npm": "4.5.0"
   }
 }
