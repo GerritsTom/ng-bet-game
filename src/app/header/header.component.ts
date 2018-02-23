@@ -9,7 +9,7 @@ import { DataService } from 'app/data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(public dataService: DataService, private router: Router) { }
 
   ngOnInit() {
   }
