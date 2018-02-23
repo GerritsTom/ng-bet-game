@@ -29,7 +29,7 @@ export class PasswordResetComponent implements OnInit {
       );
   }
 
-  onReset(form: NgForm) {
+  onReset() {
     this.loading = true;
 
     if (!this.resetForm.valid) {
