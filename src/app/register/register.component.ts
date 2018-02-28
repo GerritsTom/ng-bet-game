@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
         } else {
           this.loading = false;
           this.flashMessagesService.show(
-            this.data.message, {cssClass: 'alert-danger', timeout: 1500});
+          this.data.message, {cssClass: 'alert-danger', timeout: 1500});
         }
       },
       (error) => {

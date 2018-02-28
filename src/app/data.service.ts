@@ -22,7 +22,7 @@ export class DataService {
   }
 
   register(user: User) {
-    return this.http.post('https://bet-game-dataservice.herokuapp.com/users/login', user);
+    return this.http.post('https://bet-game-dataservice.herokuapp.com/users/signup', user);
     //return this.http.post('http://localhost:3000/users/signup', user);
   }
 
