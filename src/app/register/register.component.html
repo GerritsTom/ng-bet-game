@@ -53,16 +53,17 @@
                 </div>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit" [disabled]="!f.valid || loading">Registrieren</button>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid || loading">
+              <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+              Registrieren
+          </button>
         </form>
       </div>
     </div>
-    <hr>
     <div class="row">
-      <span class="help-block">
-        {{errorMessage}}
-      </span>
-    </div>
+        <span id="errorMessage">{{errorMessage}}</span>
+      </div>
+    <hr>
     <div class="row">
       <span>
         Schon registriert? <a style="cursor: pointer" (click)="onSignin()">Hier anmelden</a>

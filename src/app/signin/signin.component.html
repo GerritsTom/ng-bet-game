@@ -7,6 +7,10 @@
         <h3>Anmelden</h3>
         <hr>
       </div>
+      <!--
+      <div class="row">
+        <span *ngIf="loading">{{loadingMessage}}</span>
+      </div>  -->
       <div class="row">
         <div class="col-sm-4">
           <img src="../assets/images/wm2018.png" alt="WM2081">
@@ -45,25 +49,21 @@
                                 Kennwort muss mindestens 5 Zeichen lang sein!
                             </div>
                         </div>
-                <!--
-                <span class="help-block" *ngIf="!password.valid && password.touched">Geben Sie bitte ein gültiges Kennwort ein!</span>
-                -->
               </div>
 
               <!-- SUBMIT BUTTON  -->
               <button class="btn btn-primary"
                       type="submit" [disabled]="!f.valid || loading">
+                      <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
                         Anmelden
               </button>
             </form>
         </div>
       </div>
-      <hr>
       <div class="row">
-        <span class="help-block" id="errorMessage">
-          {{errorMessage}}
-        </span>
+        <span id="errorMessage">{{errorMessage}}</span>
       </div>
+      <hr>
       <div class="row">
         <span>
           Sie haben sich noch nicht registriert? <a style="cursor: pointer" (click)="onRegister()">Hier registrieren. </a>

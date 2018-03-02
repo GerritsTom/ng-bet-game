@@ -40,19 +40,24 @@ export class SigninComponent implements OnInit {
 
     this.dataService.logIn(user).subscribe(
       (response) => {
+
+      setTimeout(() => {
         this.data = response.json();
         if (this.data.success) {
           localStorage.setItem('currentUser', JSON.stringify({token: this.data.token, name: this.signupForm.value.email}));
           this.router.navigate(['index']);
         } else {
           this.loading = false;
-          this.flashMessagesService.show(this.data.message, {cssClass: 'alert-danger', timeout: 1500});
+          this.errorMessage = this.data.message;
+          // this.flashMessagesService.show(this.data.message, {cssClass: 'alert-danger', timeout: 1500});
         }
+      }, 1000);
+
+
       },
       (error) => {
         this.loading = false;
-        this.flashMessagesService.show(
-          this.data.message, {cssClass: 'alert-danger', timeout: 3000});
+        this.flashMessagesService.show(this.data.message, {cssClass: 'alert-danger', timeout: 3000});
       }
     );
   }

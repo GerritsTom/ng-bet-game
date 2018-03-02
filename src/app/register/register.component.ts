@@ -36,14 +36,17 @@ export class RegisterComponent implements OnInit {
     this.dataService.register(user).subscribe(
       (response) => {
         this.data = response.json();
-        if (this.data.success) {
-          localStorage.setItem('currentUser', JSON.stringify({token: this.data.token, name: this.registerForm.value.email}));
-          this.router.navigate(['index']);
-        } else {
-          this.loading = false;
-          this.flashMessagesService.show(
-          this.data.message, {cssClass: 'alert-danger', timeout: 1500});
-        }
+        setTimeout(() => {
+          if (this.data.success) {
+            localStorage.setItem('currentUser', JSON.stringify({token: this.data.token, name: this.registerForm.value.email}));
+            this.router.navigate(['index']);
+          } else {
+            this.loading = false;
+            //this.flashMessagesService.show(
+            //this.data.message, {cssClass: 'alert-danger', timeout: 1500});
+            this.errorMessage = this.data.message;
+          }
+        }, 1000);
       },
       (error) => {
         this.loading = false;
